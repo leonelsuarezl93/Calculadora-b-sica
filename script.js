@@ -1,10 +1,10 @@
-//Declaramos variables
+// Declaramos variables
 var operandoa;
 var operandob;
 var operacion;
 
-function init(){
-    //variables
+function init() {
+    // Variables
     var resultado = document.getElementById('resultado');
     var reset = document.getElementById('reset');
     var suma = document.getElementById('suma');
@@ -22,98 +22,100 @@ function init(){
     var ocho = document.getElementById('ocho');
     var nueve = document.getElementById('nueve');
     var cero = document.getElementById('cero');
-  }
+}
 
+// Eventos de click para los botones numéricos
+uno.onclick = function(e) {
+    resultado.textContent = resultado.textContent + "1";
+}
+dos.onclick = function(e) {
+    resultado.textContent = resultado.textContent + "2";
+}
+tres.onclick = function(e) {
+    resultado.textContent = resultado.textContent + "3";
+}
+cuatro.onclick = function(e) {
+    resultado.textContent = resultado.textContent + "4";
+}
+cinco.onclick = function(e) {
+    resultado.textContent = resultado.textContent + "5";
+}
+seis.onclick = function(e) {
+    resultado.textContent = resultado.textContent + "6";
+}
+siete.onclick = function(e) {
+    resultado.textContent = resultado.textContent + "7";
+}
+ocho.onclick = function(e) {
+    resultado.textContent = resultado.textContent + "8";
+}
+nueve.onclick = function(e) {
+    resultado.textContent = resultado.textContent + "9";
+}
+cero.onclick = function(e) {
+    resultado.textContent = resultado.textContent + "0";
+}
 
-  //Eventos de click
-  uno.onclick = function(e){
-    resultado.textContent = resultado.textContent  + "1";
-}
-dos.onclick = function(e){
-    resultado.textContent = resultado.textContent  + "2";
-}
-tres.onclick = function(e){
-    resultado.textContent = resultado.textContent  + "3";
-}
-cuatro.onclick = function(e){
-    resultado.textContent = resultado.textContent  + "4";
-}
-cinco.onclick = function(e){
-    resultado.textContent = resultado.textContent  + "5";
-}
-seis.onclick = function(e){
-    resultado.textContent = resultado.textContent  + "6";
-}
-siete.onclick = function(e){
-    resultado.textContent = resultado.textContent  + "7";
-}
-ocho.onclick = function(e){
-    resultado.textContent = resultado.textContent  + "8";
-}
-nueve.onclick = function(e){
-    resultado.textContent = resultado.textContent  + "9";
-}
-cero.onclick = function(e){
-    resultado.textContent = resultado.textContent  + "0";
-}
-reset.onclick = function(e){
+// Eventos de click para las operaciones y el botón de igual
+reset.onclick = function(e) {
     resetear();
 }
-suma.onclick = function(e){
+suma.onclick = function(e) {
     operandoa = resultado.textContent;
     operacion = "+";
     limpiar();
 }
-resta.onclick = function(e){
+resta.onclick = function(e) {
     operandoa = resultado.textContent;
     operacion = "-";
     limpiar();
 }
-multiplicacion.onclick = function(e){
+multiplicacion.onclick = function(e) {
     operandoa = resultado.textContent;
     operacion = "*";
     limpiar();
 }
-division.onclick = function(e){
+division.onclick = function(e) {
     operandoa = resultado.textContent;
     operacion = "/";
     limpiar();
 }
-igual.onclick = function(e){
+igual.onclick = function(e) {
     operandob = resultado.textContent;
     resolver();
 }
 
-function limpiar(){
+// Funciones auxiliares
+function limpiar() {
     resultado.textContent = "";
-  }
-  
-  function resetear(){
+}
+
+function resetear() {
     resultado.textContent = "";
     operandoa = 0;
     operandob = 0;
     operacion = "";
-  }
+}
 
-  function resolver(){
+function resolver() {
     var res = 0;
-    switch(operacion){
-      case "+":
-        res = parseFloat(operandoa) + parseFloat(operandob);
-        break;
-  
-      case "-":
-          res = parseFloat(operandoa) - parseFloat(operandob);
-          break;
-  
-      case "*":
-        res = parseFloat(operandoa) * parseFloat(operandob);
-        break;
-  
-      case "/":
-        res = parseFloat(operandoa) / parseFloat(operandob);
-        break;
+    switch (operacion) {
+        case "+":
+            res = parseFloat(operandoa) + parseFloat(operandob);
+            break;
+
+        case "-":
+            res = parseFloat(operandoa) - parseFloat(operandob);
+            break;
+
+        case "*":
+            res = parseFloat(operandoa) * parseFloat(operandob);
+            break;
+
+        case "/":
+            res = parseFloat(operandoa) / parseFloat(operandob);
+            break;
     }
     resetear();
     resultado.textContent = res;
-  }
+}
